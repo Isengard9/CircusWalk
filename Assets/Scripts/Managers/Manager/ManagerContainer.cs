@@ -20,7 +20,10 @@ namespace Game.General.Managers
         [SerializeField]
         private CameraManager cameraManager;
         public CameraManager CameraManager => cameraManager;
-        
+
+        [SerializeField]
+        private SoundManager soundManager;
+        public SoundManager SoundManager => soundManager;
         private void Awake()
         {
             instance = this;

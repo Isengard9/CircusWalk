@@ -76,6 +76,7 @@ namespace General.Controllers.Cube
             {
                 this.transform.position = lastCube.transform.position + Vector3.forward * 5;
                 oddCube.Create = false;
+                ManagerContainer.Instance.SoundManager.PlayEffect(true);
                 return oddCube;
             }
 
@@ -110,6 +111,7 @@ namespace General.Controllers.Cube
                 oddCube.Position = new Vector3(oddCubePositionX, 0, this.transform.localPosition.z);
             }
             
+            ManagerContainer.Instance.SoundManager.PlayEffect(false);
             return oddCube;
         }
     }

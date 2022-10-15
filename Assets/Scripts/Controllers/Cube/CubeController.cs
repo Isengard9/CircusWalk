@@ -20,7 +20,7 @@ namespace General.Controllers.Cube
 
         private OddCube oddCube;
         private float lastCubeSize = 5;
-        public static float AvarageDistance = 0.05f;
+        public static float AvarageDistance = 0.1f;
 
         protected override void OnStart()
         {
