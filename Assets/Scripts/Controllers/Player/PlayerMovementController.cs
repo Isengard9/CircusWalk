@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Game.General.Managers;
+using UnityEngine;
 
-namespace Game.General.Managers.Controllers.Player
+namespace General.Controllers.Player
 {
     public class PlayerMovementController : Controller
     {

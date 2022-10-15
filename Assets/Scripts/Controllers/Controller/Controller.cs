@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Game.General.Managers;
+using UnityEngine;
 
-namespace Game.General.Managers.Controllers
+namespace General.Controllers
 {
     public abstract class Controller : MonoBehaviour, IController
     {

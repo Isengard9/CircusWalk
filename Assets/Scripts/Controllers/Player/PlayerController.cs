@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.General.Managers.Controllers.Player
+namespace General.Controllers.Player
 {
     public class PlayerController : Controller
     {

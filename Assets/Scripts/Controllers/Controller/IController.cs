@@ -1,4 +1,4 @@
-﻿namespace Game.General.Managers.Controllers
+﻿namespace General.Controllers
 {
     public interface IController
     {
