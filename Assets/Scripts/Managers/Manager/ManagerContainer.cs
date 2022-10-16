@@ -27,6 +27,10 @@ namespace Game.General.Managers
         private SoundManager soundManager;
         public SoundManager SoundManager => soundManager;
 
+        [SerializeField]
+        private LevelManager levelManager;
+        public LevelManager LevelManager => levelManager;
+
         #endregion
         private void Awake()
         {

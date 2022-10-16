@@ -37,8 +37,7 @@ namespace Game.General.Managers
         protected override void OnStart()
         {
             base.OnStart();
-            GameStarted.Invoke();
-            
+            StartGame();
         }
 
         #region Game Functions
@@ -72,6 +71,34 @@ namespace Game.General.Managers
 
         #endregion
 
+        #region Init DeInit
+
+        protected override void Init()
+        {
+            base.Init();
+            ManagerContainer.Instance.LevelManager.OnLevelCompletedAction += OnLevelCompleted ;
+            ManagerContainer.Instance.LevelManager.OnLevelStartedAction += OnLevelStarted;
+        }
+
+        protected override void DeInit()
+        {
+            base.DeInit();
+            ManagerContainer.Instance.LevelManager.OnLevelCompletedAction -= OnLevelCompleted ;
+            ManagerContainer.Instance.LevelManager.OnLevelStartedAction -= OnLevelStarted;
+        }
+
+        private void OnLevelStarted()
+        {
+            PauseGame(false);
+        }
+
+        private void OnLevelCompleted()
+        {
+            PauseGame(true);
+        }
+
+        #endregion
+
         #region End Game
 
         public static void EndGame(bool win)
@@ -86,6 +113,7 @@ namespace Game.General.Managers
 
         public static void PauseGame(bool state)
         {
+            isGamePaused = state;
             ManagerContainer.Instance.GameManager.GamePaused?.Invoke(state);
         }
 

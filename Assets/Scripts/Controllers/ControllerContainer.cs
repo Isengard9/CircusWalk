@@ -1,4 +1,5 @@
-﻿using General.Controllers;
+﻿using Controllers.Level;
+using General.Controllers;
 using General.Controllers.Cube;
 using General.Controllers.Player;
 using UnityEngine;
@@ -17,6 +18,10 @@ namespace Controllers
         [SerializeField]
         private CubeController cubeController;
         public CubeController CubeController => cubeController;
+
+        [SerializeField]
+        private LevelController levelController;
+        public LevelController LevelController => levelController;
         
         private void Awake()
         {

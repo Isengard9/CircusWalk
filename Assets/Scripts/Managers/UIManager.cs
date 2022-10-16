@@ -8,6 +8,9 @@ namespace Game.General.Managers
 {
     public class UIManager : Manager
     {
+        [SerializeField]
+        private GameObject LevelFailedObject;
+        
         
         #region On Game Started/Paused/Ended
 
@@ -21,7 +24,7 @@ namespace Game.General.Managers
 
         protected override void OnGameEnded(bool win)
         {
-            
+            LevelFailedObject.SetActive(true);
         }
 
         #endregion

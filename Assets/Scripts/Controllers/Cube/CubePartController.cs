@@ -82,7 +82,8 @@ namespace General.Controllers.Cube
                 oddCube.Scale = this.transform.localScale;
                 oddCube.Position = this.transform.position;
                 oddCube.Create = true;
-                ManagerContainer.Instance.GameManager.GameEnded?.Invoke(true);
+                this.gameObject.SetActive(false);
+                GameManager.EndGame(false);
             }
 
             if (Mathf.Abs(distance) <= CubeController.AvarageDistance)

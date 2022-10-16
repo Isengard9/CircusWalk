@@ -11,9 +11,7 @@ namespace General.Controllers.Player
         #region Variables
 
         [SerializeField] private float MovementSpeed = 1;
-
         [SerializeField] private CharacterController characterController;
-
         private CubePartController currentCubePart;
 
         #endregion
@@ -45,12 +43,26 @@ namespace General.Controllers.Player
         {
             base.OnInit();
             ControllerContainer.Instance.PlayerController.onCubeChanged += OnCubeChanged;
+            ManagerContainer.Instance.LevelManager.OnLevelCompletedAction +=OnLevelCompleted;
+        }
+
+        private void OnLevelCompleted()
+        {
+            var centerPosition = this.transform.position;
+            centerPosition.x = 0;
+            centerPosition.z = ManagerContainer.Instance.LevelManager.CurrentFinish.transform.position.z;
+            characterController.transform.DOLocalMove(centerPosition, 1f).OnComplete(() =>
+            {
+                ControllerContainer.Instance.PlayerController.LevelLastMoveAction?.Invoke();
+            });;
+            MovementSpeed++;
         }
 
         protected override void OnDeInit()
         {
             base.OnDeInit();
             ControllerContainer.Instance.PlayerController.onCubeChanged -= OnCubeChanged;
+            ManagerContainer.Instance.LevelManager.OnLevelCompletedAction -=OnLevelCompleted;
         }
 
         private void OnCubeChanged(CubePartController obj)
