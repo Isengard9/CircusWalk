@@ -37,6 +37,7 @@ namespace Game.General.Managers
         protected override void OnStart()
         {
             base.OnStart();
+            GameStarted.Invoke();
             
         }
 

@@ -74,7 +74,7 @@ namespace General.Controllers.Cube
         {
             currentCube?.StopMove();
 
-            oddCube = currentCube?.CalculateThePart(new OddCube(), lastCube);
+            oddCube = currentCube?.SplitAction(new OddCube(), lastCube);
             CreateOddCube();
             this.transform.position += Vector3.forward * 5;
             lastCube = currentCube;

@@ -8,6 +8,8 @@ namespace Game.General.Managers
         private static ManagerContainer instance;
         public static ManagerContainer Instance => instance;
 
+        #region Managers
+
         [SerializeField]
         private UIManager uiManager;
         public UIManager UIManager => uiManager;
@@ -24,6 +26,8 @@ namespace Game.General.Managers
         [SerializeField]
         private SoundManager soundManager;
         public SoundManager SoundManager => soundManager;
+
+        #endregion
         private void Awake()
         {
             instance = this;
